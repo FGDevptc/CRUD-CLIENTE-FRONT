@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+.bg-navbar{
+  background: -moz-linear-gradient(45deg,#0476D9, #04BF8A);
+  background: -o-linear-gradient(45deg,#0476D9, #04BF8A);
+  background: -webkit-linear-gradient(45deg,#0476D9, #04BF8A);
+  background: linear-gradient(45deg,#0476D9, #04BF8A);
+}
+.bg-transparent{
+  background-color: transparent;
+  color: #eee;
+}
+.bg-brand{
+  background: -moz-linear-gradient(45deg,#0476D9, #04BF8A);
+  background: -o-linear-gradient(45deg,#0476D9, #04BF8A);
+  background: -webkit-linear-gradient(45deg,#0476D9, #04BF8A);
+  background: linear-gradient(45deg,#0476D9, #04BF8A);
+}

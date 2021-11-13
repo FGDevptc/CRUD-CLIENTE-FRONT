@@ -1,0 +1,45 @@
+<nav class="navbar navbar-dark sticky-top bg-navbar navbar-expand d-block d-md-none">
+    <div class="container">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" routerLink="clientes">CRUD CLIENTE</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="clientes">Inicio</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link" routerLink="inserir">Cadastrar</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<main>
+    <div class="container page">
+        <div class="row app">
+            <div class="col-md-2 d-none d-md-block card sidebar p-3 m-2 bg-success">
+                <div class="row text-center">
+
+                    <div class="col">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="80px" viewBox="0 0 24 24" width="80px" fill=""><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM7.07 18.28c.43-.9 3.05-1.78 4.93-1.78s4.51.88 4.93 1.78C15.57 19.36 13.86 20 12 20s-3.57-.64-4.93-1.72zm11.29-1.45c-1.43-1.74-4.9-2.33-6.36-2.33s-4.93.59-6.36 2.33C4.62 15.49 4 13.82 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8c0 1.82-.62 3.49-1.64 4.83zM12 6c-1.94 0-3.5 1.56-3.5 3.5S10.06 13 12 13s3.5-1.56 3.5-3.5S13.94 6 12 6zm0 5c-.83 0-1.5-.67-1.5-1.5S11.17 8 12 8s1.5.67 1.5 1.5S12.83 11 12 11z"/></svg>
+                        <h5>Usuario do Sistema</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="nav flex-column navbar-light">
+                        <li class="nav-item " routerLinkActive="active">
+                            <a class="nav-link" routerLink="clientes">Inicio <span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item" routerLinkActive="active">
+                            <a class="nav-link" routerLink="inserir">Cadastrar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-12 col-md-9 card m-2">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+
+    </div>
+</main>

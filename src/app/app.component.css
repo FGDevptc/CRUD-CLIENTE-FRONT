@@ -1,0 +1,15 @@
+.app {
+    margin-top: 10vh;
+}
+
+body {
+    background-color: "#ddd";
+}
+
+.sidebar {
+    min-height: 80vh;
+}
+
+svg {
+    color: aqua;
+}
