@@ -5,13 +5,12 @@
                 <th>id:</th>
                 <th>Nome</th>
                 <th>Endereço</th>
-                <th>Bairro</th>
-                <th>Contatos</th>
+                <th>Contato</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let cliente of clientesArray">
+            <tr *ngFor="let cliente of clientesArray; let i=index;">
                 <td>
                     {{cliente.id}}
                 </td>
@@ -19,13 +18,18 @@
                     {{cliente.nome}}
                 </td>
                 <td>
-                    {{cliente.endereco}}
+                    {{cliente.endereco}} - {{cliente.bairro}}
                 </td>
                 <td>
-                    {{cliente.bairro}}
+                    <div *ngFor="let obj of cliente.telefones">
+                        {{obj.numeroTelefone }}
+                    </div>
                 </td>
-                <td></td>
-                <td></td>
+                <td class="text-right">
+                    <button type="button" class="btn btn-outline-warning mr-lg-2" routerLink="/clientes/{{ cliente.id }}">Atualizar</button>
+                    <button type="button" class="btn btn-outline-danger ml-lg-2" (click)="deleteCliente(cliente.id)">Remover</button>
+                </td>
+
             </tr>
         </tbody>
     </table>

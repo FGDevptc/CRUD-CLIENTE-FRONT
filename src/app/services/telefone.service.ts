@@ -3,34 +3,32 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
+const baseUrl = "http://localhost:8080/telefones";
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class TelefoneService {
 
   constructor(private http: HttpClient) { }
-
-  getAll(): Observable<Telefone[]> {
-    return this.http.get<Telefone[]>("http://localhost:8080/telefones");
+  getAll(id_cliente : any): Observable<Telefone[]> {
+    return this.http.get<Telefone[]>(baseUrl);
   }
 
   get(id: any): Observable<Telefone> {
-    return this.http.get(`"http://localhost:8080/telefones"/${id}`);
+    return this.http.get(`${baseUrl}/${id}`);
   }
 
-  create(data: any, cliente: any): Observable<any> {
-    return this.http.post("http://localhost:8080/telefones", data);
+  create(id_cliente: any, data: any): Observable<any> {
+    return this.http.post(`${baseUrl}/cliente?${id_cliente}`, data);
   }
+
   update(id: any, data: any): Observable<any> {
-    return this.http.put(`"http://localhost:8080/telefones"/${id}`, data);
+    return this.http.put(`${baseUrl}/${id}`, data);
   }
 
   delete(id: any): Observable<any> {
-    return this.http.delete(`"http://localhost:8080/telefones"/${id}`);
+    return this.http.delete(`${baseUrl}/${id}`);
   }
-
-  findByID(id: any): Observable<Telefone[]> {
-    return this.http.get<Telefone[]>(`"http://localhost:8080/Telefones"?id=${id}`);
-  }
-
 }

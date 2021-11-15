@@ -1,3 +1,4 @@
+import { Telefone } from 'src/app/model/telefone.=model';
 import { ClienteServiceService } from 'src/app/services/cliente-service.service';
 import { Cliente } from 'src/app/model/cliente.=model';
 import { Component, OnInit } from '@angular/core';
@@ -8,11 +9,10 @@ import { Observable,Subject } from "rxjs";
   templateUrl: './list-clientes.component.html',
   styleUrls: ['./list-clientes.component.css']
 })
+
 export class ListClientesComponent implements OnInit {
 
-  clientesArray: Cliente[]=[];
-  currentCliente: Cliente = {};
-  IndiceCorrente = -1;
+  clientesArray?: Cliente[]=[];
   exclusão = false;
 
 
@@ -28,6 +28,9 @@ export class ListClientesComponent implements OnInit {
       data => {
         this.clientesArray = data;
         console.log(data);
+        console.log("Cliente Tratado:");
+        console.log(this.clientesArray);
+
       },
       error => {
         console.log(error);

@@ -8,8 +8,24 @@ body {
 
 .sidebar {
     min-height: 80vh;
+    color: #fff;
 }
 
 svg {
-    color: aqua;
+    color: #fff;
+    size: 3.0em;
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    color: #fff;
+    font-size: 1.0em;
+    text-transform: uppercase;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0;
+}
+
+.sidebar a:hover {
+    color: #000;
 }

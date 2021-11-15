@@ -6,6 +6,7 @@ import { Telefone } from 'src/app/model/telefone.=model';
 import { ClienteServiceService } from 'src/app/services/cliente-service.service';
 import { Observable,Subject } from "rxjs";
 
+
 @Component({
   selector: 'app-ins-cliente',
   templateUrl: './ins-cliente.component.html',
@@ -18,32 +19,35 @@ export class InsClienteComponent implements OnInit {
     bairro: '',
   };
 
-
-  qtdTel: number = 0;
-
-  ArrayTelefones: Telefone [] = [{telefone: ""}];
+  ArrayTelefones: Telefone [] = [{numeroTelefone: ""}];
 
   submitted = false;
 
   clienteResponse: Cliente = {};
 
+  erroExlcusao = false;
+
   constructor(private clienteService: ClienteServiceService, private telefoneService: TelefoneService) {}
 
   ngOnInit(): void {}
 
-  saveCliente(): void {
+  cadastrarCliente(): void {
     const data = {
       nome: this.cliente.nome,
       endereco: this.cliente.endereco,
       bairro: this.cliente.bairro,
-      telefone: this.ArrayTelefones
+      telefones: this.ArrayTelefones
     };
-    console.log(data.telefone);
+    console.log(data);
+
+
+
     this.clienteService.create(data).subscribe(
       (response) => {
-        console.log(response);
-        this.submitted = true;
         this.clienteResponse = response;
+        console.log("Cliente:")
+        console.log(this.clienteResponse);
+        this.submitted = true;
       },
       (error) => {
         console.log(error);
@@ -53,7 +57,25 @@ export class InsClienteComponent implements OnInit {
   }
 
   addTelefone(){
-    this.qtdTel++;
+    this.ArrayTelefones.push(
+      {numeroTelefone: ""}
+    );
+  }
+  removeTelefone(i: number){
+    if(this.ArrayTelefones.length>1){
+      this.ArrayTelefones.splice(i, 1);
+    }
+    else this.erroExlcusao = true;
+
+  }
+
+  limpardados(){
+    this.cliente = {
+      nome: "",
+      endereco: "",
+      bairro: ""
+    }
+    this.ArrayTelefones = [{numeroTelefone: ""}]
   }
 
   newCliente(): void {
@@ -63,6 +85,7 @@ export class InsClienteComponent implements OnInit {
       endereco: '',
       bairro: ''
     };
+    this.ArrayTelefones = [{numeroTelefone: ""}]
   }
 
 
